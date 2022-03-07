@@ -5,6 +5,8 @@ class Dish < ApplicationRecord
 
   # Validations
 
+  validates :dish_name, :presence => true
+
   validates :user_id, :presence => true
 
   # Scopes
