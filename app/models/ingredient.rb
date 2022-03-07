@@ -1,6 +1,9 @@
 class Ingredient < ApplicationRecord
   # Direct associations
 
+  has_many   :combinations,
+             :dependent => :nullify
+
   # Indirect associations
 
   # Validations
