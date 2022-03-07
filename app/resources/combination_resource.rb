@@ -8,6 +8,8 @@ class CombinationResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :ingredient
+
   belongs_to :dish
 
   # Indirect associations
