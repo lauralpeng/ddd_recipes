@@ -2,7 +2,7 @@ class Ingredient < ApplicationRecord
   # Direct associations
 
   has_many   :combinations,
-             :dependent => :nullify
+             dependent: :nullify
 
   # Indirect associations
 
@@ -13,5 +13,4 @@ class Ingredient < ApplicationRecord
   def to_s
     ingredient_name
   end
-
 end

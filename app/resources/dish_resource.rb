@@ -18,5 +18,4 @@ class DishResource < ApplicationResource
   has_many   :combinations
 
   # Indirect associations
-
 end

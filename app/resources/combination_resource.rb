@@ -13,5 +13,4 @@ class CombinationResource < ApplicationResource
   belongs_to :dish
 
   # Indirect associations
-
 end

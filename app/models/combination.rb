@@ -14,5 +14,4 @@ class Combination < ApplicationRecord
   def to_s
     ingredient.to_s
   end
-
 end
