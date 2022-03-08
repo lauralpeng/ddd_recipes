@@ -3,7 +3,8 @@ class Combination < ApplicationRecord
 
   belongs_to :ingredient
 
-  belongs_to :dish
+  belongs_to :dish,
+             counter_cache: true
 
   # Indirect associations
 
