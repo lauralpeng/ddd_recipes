@@ -1,5 +1,10 @@
-<%= search_form_for @q, :class => collapse_search_form, :id => "combinations_filters" do |f| %>
+<%= search_form_for @q, :class => collapse_search_form, :id => "recipes_filters" do |f| %>
   <p class="lead">Narrow results:</p>
+
+  <div class="form-group">
+    <%= f.label :unit_cont, "Unit contains" %>
+    <%= f.text_field :unit_cont, :class => "form-control", :placeholder => "Unit contains" %>
+  </div>
 
   <div class="form-group">
     <%= f.label :quantity, "Quantity" %>
@@ -67,10 +72,10 @@
 
   <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
 
-  <a href="/combinations" class="btn btn-outline-secondary btn-block mb-1">Clear filters</a>
+  <a href="/recipes" class="btn btn-outline-secondary btn-block mb-1">Clear filters</a>
 
 <% end %>
 
-<a class="btn btn-outline-secondary btn-block mb-1" data-toggle="collapse" href="#combinations_filters">
+<a class="btn btn-outline-secondary btn-block mb-1" data-toggle="collapse" href="#recipes_filters">
   Show filters
 </a>

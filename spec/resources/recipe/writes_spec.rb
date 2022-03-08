@@ -1,64 +1,64 @@
 require "rails_helper"
 
-RSpec.describe CombinationResource, type: :resource do
+RSpec.describe RecipeResource, type: :resource do
   describe "creating" do
     let(:payload) do
       {
         data: {
-          type: "combinations",
+          type: "recipes",
           attributes: {},
         },
       }
     end
 
     let(:instance) do
-      CombinationResource.build(payload)
+      RecipeResource.build(payload)
     end
 
     it "works" do
       expect do
         expect(instance.save).to eq(true),
                                  instance.errors.full_messages.to_sentence
-      end.to change { Combination.count }.by(1)
+      end.to change { Recipe.count }.by(1)
     end
   end
 
   describe "updating" do
-    let!(:combination) { create(:combination) }
+    let!(:recipe) { create(:recipe) }
 
     let(:payload) do
       {
         data: {
-          id: combination.id.to_s,
-          type: "combinations",
+          id: recipe.id.to_s,
+          type: "recipes",
           attributes: {}, # Todo!
         },
       }
     end
 
     let(:instance) do
-      CombinationResource.find(payload)
+      RecipeResource.find(payload)
     end
 
     xit "works (add some attributes and enable this spec)" do
       expect do
         expect(instance.update_attributes).to eq(true)
-      end.to change { combination.reload.updated_at }
-      # .and change { combination.foo }.to('bar') <- example
+      end.to change { recipe.reload.updated_at }
+      # .and change { recipe.foo }.to('bar') <- example
     end
   end
 
   describe "destroying" do
-    let!(:combination) { create(:combination) }
+    let!(:recipe) { create(:recipe) }
 
     let(:instance) do
-      CombinationResource.find(id: combination.id)
+      RecipeResource.find(id: recipe.id)
     end
 
     it "works" do
       expect do
         expect(instance.destroy).to eq(true)
-      end.to change { Combination.count }.by(-1)
+      end.to change { Recipe.count }.by(-1)
     end
   end
 end

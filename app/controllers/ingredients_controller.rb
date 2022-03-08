@@ -7,7 +7,7 @@ class IngredientsController < ApplicationController
   end
 
   def show
-    @combination = Combination.new
+    @recipe = Recipe.new
   end
 
   def new

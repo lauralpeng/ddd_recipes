@@ -7,7 +7,8 @@ class IngredientResource < ApplicationResource
 
   # Direct associations
 
-  has_many :combinations
+  has_many   :combinations,
+             resource: RecipeResource
 
   # Indirect associations
 end

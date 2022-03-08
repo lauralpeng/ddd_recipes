@@ -2,6 +2,7 @@ class Ingredient < ApplicationRecord
   # Direct associations
 
   has_many   :combinations,
+             class_name: "Recipe",
              dependent: :nullify
 
   # Indirect associations

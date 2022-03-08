@@ -3,16 +3,16 @@
     Combinations
 
     <a data-toggle="collapse" href="#dish_combinations_new_form">
-      Add combination
+      Add recipe
     </a>
   </div>
 
   <ul class="list-group list-group-flush">
-    <% @dish.combinations.each do |combination| %>
+    <% @dish.combinations.each do |recipe| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <%= link_to combination, combination %>
+        <%= link_to recipe, recipe %>
 
-        <%= link_to combination, method: :delete, data: { confirm: "Do you really want to delete this combination" } do %>
+        <%= link_to recipe, method: :delete, data: { confirm: "Do you really want to delete this recipe" } do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
 

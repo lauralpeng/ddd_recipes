@@ -1,37 +1,37 @@
 require "rails_helper"
 
-RSpec.describe CombinationResource, type: :resource do
+RSpec.describe RecipeResource, type: :resource do
   describe "serialization" do
-    let!(:combination) { create(:combination) }
+    let!(:recipe) { create(:recipe) }
 
     it "works" do
       render
       data = jsonapi_data[0]
-      expect(data.id).to eq(combination.id)
-      expect(data.jsonapi_type).to eq("combinations")
+      expect(data.id).to eq(recipe.id)
+      expect(data.jsonapi_type).to eq("recipes")
     end
   end
 
   describe "filtering" do
-    let!(:combination1) { create(:combination) }
-    let!(:combination2) { create(:combination) }
+    let!(:recipe1) { create(:recipe) }
+    let!(:recipe2) { create(:recipe) }
 
     context "by id" do
       before do
-        params[:filter] = { id: { eq: combination2.id } }
+        params[:filter] = { id: { eq: recipe2.id } }
       end
 
       it "works" do
         render
-        expect(d.map(&:id)).to eq([combination2.id])
+        expect(d.map(&:id)).to eq([recipe2.id])
       end
     end
   end
 
   describe "sorting" do
     describe "by id" do
-      let!(:combination1) { create(:combination) }
-      let!(:combination2) { create(:combination) }
+      let!(:recipe1) { create(:recipe) }
+      let!(:recipe2) { create(:recipe) }
 
       context "when ascending" do
         before do
@@ -41,8 +41,8 @@ RSpec.describe CombinationResource, type: :resource do
         it "works" do
           render
           expect(d.map(&:id)).to eq([
-                                      combination1.id,
-                                      combination2.id,
+                                      recipe1.id,
+                                      recipe2.id,
                                     ])
         end
       end
@@ -55,8 +55,8 @@ RSpec.describe CombinationResource, type: :resource do
         it "works" do
           render
           expect(d.map(&:id)).to eq([
-                                      combination2.id,
-                                      combination1.id,
+                                      recipe2.id,
+                                      recipe1.id,
                                     ])
         end
       end

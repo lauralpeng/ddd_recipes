@@ -15,7 +15,8 @@ class DishResource < ApplicationResource
 
   belongs_to :category
 
-  has_many   :combinations
+  has_many   :combinations,
+             resource: RecipeResource
 
   # Indirect associations
 end

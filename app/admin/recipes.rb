@@ -1,5 +1,5 @@
-ActiveAdmin.register Combination do
-  permit_params :ingredient_id, :quantity, :dish_id
+ActiveAdmin.register Recipe do
+  permit_params :ingredient_id, :quantity, :dish_id, :unit
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
