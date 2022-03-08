@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   scope path: ApplicationResource.endpoint_namespace,
         defaults: { format: :jsonapi } do
     scope module: "api/v1", as: "api" do
-      resources :combinations
+      resources :recipes
 
       resources :ingredients
 
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
   ActiveAdmin.routes(self)
   root to: "dishes#index"
-  resources :combinations
+  resources :recipes
   resources :ingredients
   resources :users
   resources :categories

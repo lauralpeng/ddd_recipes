@@ -1,10 +1,11 @@
-class CombinationResource < ApplicationResource
+class RecipeResource < ApplicationResource
   attribute :id, :integer, writable: false
   attribute :created_at, :datetime, writable: false
   attribute :updated_at, :datetime, writable: false
   attribute :ingredient_id, :integer
-  attribute :quantity, :integer
+  attribute :quantity, :float
   attribute :dish_id, :integer
+  attribute :unit, :string
 
   # Direct associations
 

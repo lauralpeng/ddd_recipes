@@ -8,6 +8,7 @@ class Dish < ApplicationRecord
   belongs_to :category
 
   has_many   :combinations,
+             class_name: "Recipe",
              dependent: :destroy
 
   # Indirect associations

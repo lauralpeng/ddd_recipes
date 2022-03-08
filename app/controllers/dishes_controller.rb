@@ -8,7 +8,7 @@ class DishesController < ApplicationController
   end
 
   def show
-    @combination = Combination.new
+    @recipe = Recipe.new
   end
 
   def new

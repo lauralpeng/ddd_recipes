@@ -1,9 +1,9 @@
-<% was_validated = combination.errors.any? %>
+<% was_validated = recipe.errors.any? %>
 
-<%= form_with(model: combination, local: true, novalidate: true, class: "mb-3") do |f| %>
+<%= form_with(model: recipe, local: true, novalidate: true, class: "mb-3") do |f| %>
   <div class="form-group">
     <% ingredient_class = "form-control" %>
-    <% ingredient_was_invalid = combination.errors.include?(:ingredient) %>
+    <% ingredient_was_invalid = recipe.errors.include?(:ingredient) %>
 
     <% if was_validated %>
       <% if ingredient_was_invalid %>
@@ -16,7 +16,7 @@
     <%= f.label :ingredient_id %>
     <%= f.collection_select :ingredient_id, Ingredient.all, :id, :to_s, {}, class: "form-control" %>
     <% if ingredient_was_invalid %>
-      <% combination.errors.full_messages_for(:ingredient).each do |message| %>
+      <% recipe.errors.full_messages_for(:ingredient).each do |message| %>
         <div class="invalid-feedback d-flex">
           <%= message %>
         </div>
@@ -25,7 +25,7 @@
   </div>
   <div class="form-group">
     <% quantity_class = "form-control" %>
-    <% quantity_was_invalid = combination.errors.include?(:quantity) %>
+    <% quantity_was_invalid = recipe.errors.include?(:quantity) %>
 
     <% if was_validated %>
       <% if quantity_was_invalid %>
@@ -36,9 +36,9 @@
     <% end %>
 
     <%= f.label :quantity %>
-    <%= f.number_field :quantity, class: quantity_class, placeholder: "Enter quantity" %>
+    <%= f.text_field :quantity, class: quantity_class, placeholder: "Enter quantity" %>
     <% if quantity_was_invalid %>
-      <% combination.errors.full_messages_for(:quantity).each do |message| %>
+      <% recipe.errors.full_messages_for(:quantity).each do |message| %>
         <div class="invalid-feedback d-flex">
           <%= message %>
         </div>
@@ -47,7 +47,7 @@
   </div>
   <div class="form-group">
     <% dish_class = "form-control" %>
-    <% dish_was_invalid = combination.errors.include?(:dish) %>
+    <% dish_was_invalid = recipe.errors.include?(:dish) %>
 
     <% if was_validated %>
       <% if dish_was_invalid %>
@@ -60,7 +60,29 @@
     <%= f.label :dish_id %>
     <%= f.collection_select :dish_id, Dish.all, :id, :to_s, {}, class: "form-control" %>
     <% if dish_was_invalid %>
-      <% combination.errors.full_messages_for(:dish).each do |message| %>
+      <% recipe.errors.full_messages_for(:dish).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <% unit_class = "form-control" %>
+    <% unit_was_invalid = recipe.errors.include?(:unit) %>
+
+    <% if was_validated %>
+      <% if unit_was_invalid %>
+        <% unit_class << " is-invalid" %>
+      <% else %>
+        <% unit_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :unit %>
+    <%= f.text_field :unit, class: unit_class, placeholder: "Enter unit" %>
+    <% if unit_was_invalid %>
+      <% recipe.errors.full_messages_for(:unit).each do |message| %>
         <div class="invalid-feedback d-flex">
           <%= message %>
         </div>

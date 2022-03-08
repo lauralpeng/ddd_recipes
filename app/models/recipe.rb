@@ -1,4 +1,4 @@
-class Combination < ApplicationRecord
+class Recipe < ApplicationRecord
   # Direct associations
 
   belongs_to :ingredient

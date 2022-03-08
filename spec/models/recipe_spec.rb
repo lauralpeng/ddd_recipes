@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe Combination, type: :model do
+RSpec.describe Recipe, type: :model do
   describe "Direct Associations" do
     it { should belong_to(:ingredient) }
 

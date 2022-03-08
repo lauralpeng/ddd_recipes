@@ -1,4 +1,4 @@
-<%= form_with(model: @combination, local: true) do |f| %>
+<%= form_with(model: @recipe, local: true) do |f| %>
 
   <%= f.hidden_field :ingredient_id, value: @ingredient.id %>
 
@@ -14,5 +14,11 @@
     <%= f.collection_select :dish_id, Dish.all, :id, :to_s, {}, class: "form-control" %>
   </div>
 
-  <%= f.submit "Create combination", class: "btn btn-block btn-outline-secondary" %>
+  <div class="form-group">
+    <%= f.label :unit %>
+
+    <%= f.text_field :unit, class: "form-control" %>
+  </div>
+
+  <%= f.submit "Create recipe", class: "btn btn-block btn-outline-secondary" %>
 <% end %>
