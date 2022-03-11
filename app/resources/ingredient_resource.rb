@@ -3,7 +3,7 @@ class IngredientResource < ApplicationResource
   attribute :created_at, :datetime, writable: false
   attribute :updated_at, :datetime, writable: false
   attribute :ingredient_name, :string
-  attribute :have_vs_buy, :boolean
+  attribute :have_vs_not, :boolean
 
   # Direct associations
 
