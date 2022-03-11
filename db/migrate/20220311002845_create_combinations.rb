@@ -3,7 +3,7 @@ class CreateCombinations < ActiveRecord::Migration[6.0]
     create_table :combinations do |t|
       t.integer :ingredient_id
       t.float :quantity
-      t.string :unit
+      t.string :measure
       t.integer :dish_id
 
       t.timestamps

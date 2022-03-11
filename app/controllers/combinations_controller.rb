@@ -55,7 +55,7 @@ class CombinationsController < ApplicationController
   end
 
   def combination_params
-    params.require(:combination).permit(:ingredient_id, :quantity, :unit,
+    params.require(:combination).permit(:ingredient_id, :quantity, :measure,
                                         :dish_id)
   end
 end
